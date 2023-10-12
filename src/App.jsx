@@ -1,5 +1,7 @@
 import "./App.css";
 import Header from "./Components/Header/Header";
+import SearchBar from "./Components/SearchBar/SearchBar";
+import MusicTable from "./Components/MusicTable/MusicTable";
 //import axios from "axios";
 
 function App() {
@@ -15,6 +17,9 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <SearchBar />
+      <MusicTable />
+      <NewSongForm />
     </div>
   );
 }
