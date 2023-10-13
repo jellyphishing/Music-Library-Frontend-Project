@@ -46,7 +46,7 @@ const NewSongForm = ({ onNewSong }) => {
           onChange={setReleaseDate}
         />
         <div className="d-flex justify-content-end">
-          <button className="btn btn-priamry" type="submit">
+          <button className="btn btn-primary" type="submit">
             Add Song
           </button>
         </div>
