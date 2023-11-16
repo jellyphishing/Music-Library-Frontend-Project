@@ -18,7 +18,7 @@ const NewSongForm = ({ onNewSong }) => {
       album,
       releaseDate,
     };
-
+    console.log(formData);
     try {
       const response = await axios.post(
         "https://localhost:7197/api/Songs",
@@ -46,6 +46,7 @@ const NewSongForm = ({ onNewSong }) => {
           onChange={setReleaseDate}
         />
         <div className="d-flex justify-content-end">
+          {/* Where to put padding? */}
           <button className="btn btn-primary" type="submit">
             Add Song
           </button>

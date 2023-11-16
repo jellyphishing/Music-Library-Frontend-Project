@@ -1,39 +1,41 @@
 import "./MusicTable.css";
 
-const MusicTable = ({}) => {
-
-const api_url = "https://localhost:7197/api/Songs";
-const songItems = songs.map((song)) => {song};
-
-async function getapi(url) {
-    const response =await fetch(url);
-}
-
-
+const MusicTable = ({ songs, searchTerm }) => {
+  const filteredSongs = songs.filter(
+    (song) =>
+      song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      song.artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      song.genre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      song.album.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      song.releaseDate.includes(searchTerm)
+  );
+  const songItems = filteredSongs.map((song) => (
+    <tr>
+      <td>{song.title}</td>
+      <td>{song.artist}</td>
+      <td>{song.album}</td>
+      <td>{song.genre}</td>
+      <td>{song.releaseDate}</td>
+    </tr>
+  ));
 
   return (
-    <table>
-      <h2>Music Collection</h2>
-      <tr>
-        <th>Title</th>
-        <th>Artist</th>
-        <th>Album</th>
-        <th>Genre</th>
-        <th>Release Date</th>
-      </tr>
-      for (let r of data.list){" "}
-      {
-        (tab += (
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border">
+        <h2>Music Collection</h2>
+        <table>
           <tr>
-            <td>${r.title}</td>
-            <td>${r.artist}</td>
-            <td>${r.album}</td>
-            <td>${r.genre}</td>
-            <td>${r.releaseDate}</td>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Album</th>
+            <th>Genre</th>
+            <th>Release Date</th>
           </tr>
-        ))
-      }
-    </table>
+          {songItems}
+        </table>
+      </div>
+    </div>
   );
 };
+
 export default MusicTable;
